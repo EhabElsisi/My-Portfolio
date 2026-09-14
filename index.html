@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehab Elsisi - Senior UX Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'STC Forward', sans-serif;
+            background: #0a0a0a;
+            color: #f2f2f2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* subtle radial glow behind hero, echoing the reference's lit backdrop */
+        .glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(255, 55, 94, 0.10) 0%, rgba(79, 0, 140, 0.08) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* top nav */
+        .nav {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px 48px;
+        }
+
+        .nav-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #f2f2f2;
+        }
+
+        .nav-social {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-social a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #999;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .nav-social a svg {
+            width: 15px;
+            height: 15px;
+            fill: #999;
+            transition: fill 0.25s ease;
+        }
+
+        .nav-social a:hover {
+            color: #FF375E;
+        }
+
+        .nav-social a:hover svg {
+            fill: #FF375E;
+        }
+
+        /* hero */
+        main {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 48px;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 76px);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -1px;
+            color: #f5f5f5;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+        }
+
+        h1 em {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 400;
+            background: linear-gradient(135deg, #FF375E 0%, #4F008C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            margin-top: 36px;
+        }
+
+        .subtitle .line-primary {
+            font-size: 17px;
+            font-weight: 600;
+            color: #f2f2f2;
+        }
+
+        .subtitle .line-secondary {
+            margin-top: 6px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #777;
+        }
+
+        /* scroll indicator */
+        .scroll-cue {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 40px;
+        }
+
+        .scroll-cue svg {
+            width: 20px;
+            height: 20px;
+            stroke: #666;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(8px); opacity: 1; }
+        }
+
+        /* footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 12px;
+            color: #555;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #FF375E;
+            box-shadow: 0 0 8px rgba(255, 55, 94, 0.8);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
+        @media (max-width: 640px) {
+            .nav {
+                padding: 24px 24px;
+            }
+
+            .nav-social {
+                gap: 18px;
+            }
+
+            .nav-social a span {
+                display: none;
+            }
+
+            main {
+                padding: 0 24px;
+            }
+
+            footer {
+                padding: 20px 24px;
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+
+    <nav class="nav">
+        <div class="nav-name">Ehab Elsisi</div>
+        <div class="nav-social">
+            <a href="#" title="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.94 6 2.5 6S0 4.88 0 3.5 1.04 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.06h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.6 1.75-2.6 3.56V23h-4V8z"/></svg>
+                <span>LinkedIn</span>
+            </a>
+            <a href="#" title="Dribbble">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm7.94 5.51a10.07 10.07 0 0 1 2.29 6.3c-.33-.07-3.63-.74-6.95-.32-.07-.17-.14-.34-.21-.51a29.4 29.4 0 0 0-.63-1.4c3.67-1.5 5.34-3.65 5.5-4.07zM12 1.85c2.5 0 4.79.93 6.53 2.46-.14.2-1.65 2.2-5.18 3.55C11.75 4.9 10 2.55 9.74 2.2c.72-.22 1.48-.35 2.26-.35zm-3.9.99c.25.34 1.98 2.7 3.62 5.65-4.57 1.22-8.6 1.2-9.03 1.19a10.13 10.13 0 0 1 5.41-6.84zM1.85 12v-.29c.4.01 5.16.07 10.05-1.4.28.54.54 1.09.78 1.63-.13.04-.27.08-.4.12-5.06 1.63-7.75 6.1-7.98 6.48A10.11 10.11 0 0 1 1.85 12zm10.15 10.15c-2.28 0-4.38-.79-6.04-2.11.18-.37 2.27-4.42 7.85-6.32.03-.01.05-.01.08-.02a34.5 34.5 0 0 1 1.75 6.94 10.1 10.1 0 0 1-3.64.67v.34-.34zm5.46-1.64a35.5 35.5 0 0 0-1.62-6.5c3.13-.5 5.88.32 6.22.43a10.14 10.14 0 0 1-4.6 6.07z"/></svg>
+                <span>Dribbble</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <h1>Designing thoughtful<br>digital <em>experiences.</em></h1>
+            <div class="subtitle">
+                <div class="line-primary">Senior UX Designer at stc. Based in Riyadh, KSA.</div>
+                <div class="line-secondary">Portfolio coming soon.</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="scroll-cue">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="4" x2="12" y2="20"></line>
+            <polyline points="6 14 12 20 18 14"></polyline>
+        </svg>
+    </div>
+
+    <footer>
+        <div>© 2026 Ehab Elsisi. All rights reserved.</div>
+        <div class="status">
+            <span class="status-dot"></span>
+            Portfolio in progress
+        </div>
+    </footer>
+</body>
+</html>
